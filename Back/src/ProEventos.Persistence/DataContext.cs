@@ -15,6 +15,10 @@ namespace ProEventos.Persistence
         public DbSet<RedeSocial> RedesSociais { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-            .HasKey(PE => new {PE.EventoId, PE.PalestranteId});
+        {
+            modelBuilder.Entity<PalestranteEvento>()
+                .HasKey(PE => new {PE.EventoId, PE.PalestranteId});
+        }
+
     }
 }
